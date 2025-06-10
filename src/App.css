@@ -14,3 +14,58 @@
 .page-container img {
     width: 500px;
 }
+
+.main-navigation {
+    background-color: var(--color-secondary);
+    padding: 16px 0;
+}
+
+.inner-nav-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-navigation-logo-button {
+    background-color: transparent;
+    border: none;
+    max-width: 200px;
+}
+
+.main-navigation-links {
+    list-style: none;
+    flex-basis: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-navigation {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 32px 0;
+    font-weight: 600;
+}
+
+.main-navigation-links .active-link {
+    text-decoration: underline;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.main-navigation-links .default-link {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.main-navigation-links .active-link:hover,
+.main-navigation-links .default-link:hover {
+    color: var(--color-primary);
+}
