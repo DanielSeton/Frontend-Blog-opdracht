@@ -16,21 +16,22 @@ function App() {
         <>
             <header>
                 <nav className="main-navigation outer-content-container">
-                    <div className="inner-container">
-                        <button className="" onClick={() => navigate('/') }></button>
-                        <img src={logoMedium} alt="Logo van bedrijf" />
+                    <div className="inner-nav-container">
+                        <button className="main-navigation-logo-button" onClick={() => navigate('/') }>
+                            <img src={logoMedium} alt="Logo van bedrijf" />
+                        </button>
+                        <ul className="main-navigation-links">
+                            <li>
+                                <NavLink to="/">Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/overview">Alle posts</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/post">Nieuwe post</NavLink>
+                            </li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li>
-                            <NavLink to="/">Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/overview">Alle posts</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/post">Nieuwe post</NavLink>
-                        </li>
-                    </ul>
                 </nav>
             </header>
             <main>
