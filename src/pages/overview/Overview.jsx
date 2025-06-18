@@ -1,8 +1,8 @@
 import "./Overview.css"
 import BlogBlock from "../../components/blog-block/BlogBlock.jsx";
-import data from "../../constants/data.json";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {Navigate} from "react-router-dom";
 
 function Overview() {
 
@@ -36,18 +36,22 @@ function Overview() {
             <div className="inner-content-container">
                 <h1>Bekijk alle {blogs.length} posts op het platform</h1>
                 <ul className="post-list">
-                    {blogs.map((blog) => {
-                        return (
-                            <li className="post-item" key={blog.id}>
-                                <BlogBlock
-                                    id={blog.id}
-                                    title={blog.title}
-                                    author={blog.author}
-                                    commentAmount={blog.comments}
-                                    shares={blog.shares}/>
-                            </li>
-                        )
-                    })}
+                    {error ? <Navigate to="/error" /> :
+                        <>
+                            {blogs.map((blog) => {
+                                return (
+                                    <li className="post-item" key={blog.id}>
+                                        <BlogBlock
+                                            id={blog.id}
+                                            title={blog.title}
+                                            author={blog.author}
+                                            commentAmount={blog.comments}
+                                            shares={blog.shares}/>
+                                    </li>
+                                )
+                            })}
+                        </>
+                    }
                 </ul>
             </div>
         </section>

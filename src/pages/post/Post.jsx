@@ -1,6 +1,7 @@
 import "./Post.css"
 import InputField from "../../components/input-field/InputField.jsx";
 import {useState} from "react";
+import axios from "axios";
 
 function Post() {
 
@@ -8,9 +9,32 @@ function Post() {
     const [subtitle, setSubtitle] = useState("");
     const [author, setAuthor] = useState("");
     const [content, setContent] = useState("");
+    const [error, toggleError] = useState(false);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
+        toggleError(false);
+
+        try {
+            const response = await axios.post('https://novi-backend-api-wgsgz.ondigitalocean.app/api/blogposts', {
+                    "title": title,
+                    "subtitle": subtitle,
+                    "content": content,
+                    "created": '06-18-2025',
+                    "author": author,
+                    "readTime": 0,
+                    "comments": 0,
+                    "shares": 0
+                }, { headers: {
+                    'novi-education-project-id': 'd83f1d14-c828-41b5-940b-c58d139b7820'
+                }, 'Content-Type' : 'application/json'});
+            console.log(response.data);
+        } catch(e) {
+            console.error(e);
+            toggleError(true);
+        }
+
+        console.log(title, subtitle, author, content);
     }
 
     return (
